@@ -11,5 +11,8 @@ Bienvenue sur notre application web utilisant [**Symfony**](https://symfony.com/
 ### Créer un controller 
 - php bin/console make:controller *NomDuController*
 
+### Afficher toutes les routes
+- php bin/console debug:router
+
 ### Vérifie tous les templates
 - php bin/console lint:twig
