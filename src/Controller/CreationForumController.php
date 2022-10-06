@@ -41,6 +41,7 @@ class CreationForumController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
 
             $forum->setCreatedAt(new \DateTime());
+            $forum->setUtilisateurId($this->getUser()->getId());
 
             $manager->persist($forum);
             $manager->flush();
