@@ -11,12 +11,8 @@
     </head>
     <body>
         <style>
-            .navbar { margin-bottom: 40px }
+            .navbar { margin-bottom: 40px; height: 60px }
             .navbar img { max-height: 40px }
-            .navbar .dropdown-toggle:hover {
-                function(){$(this).toggleClass('show');
-                aria-expanded: true
-            }
         </style>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
@@ -43,10 +39,20 @@
                             <a class="nav-link" href="/messagerie">Messagerie</a>
                         </li>
                     </ul>
-                    <ul class="navbar-nav ms-md-auto">                
-                        <li class="nav-item">
-                            <a class="nav-link account" href="/compte">Mon compte</a>
-                        </li>
+                    <ul class="navbar-nav ms-md-auto">  
+                        {% if app.user %}
+                            <li class="nav-item">
+                                <a class="nav-link account" href="/connexion">Connexion</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link account" href="/compte">{{ app.user.username }}</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link account" href="/deconnexion">Déconnexion</a>
+                            </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
