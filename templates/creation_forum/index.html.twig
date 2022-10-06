@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'bootstrap_4_layout.html.twig'%}
+
+{% block title %}Hello CreationForumController!{% endblock %}
+
+{% block body %}
+<h1> Création d'un Topic ! </h1>
+
+
+{{ form_start(form) }}
+
+
+
+
+    {{ form_row(form.Titre,{'attr':{'placeholder': "Titre du Topic" }}) }}
+    {{ form_row(form.Service,{'attr':{'placeholder': "Catégorie" }}) }}
+    {{ form_row(form.content,{'attr':{'placeholder': "Contenu du Topic" }})}}
+   
+
+    <button type="submit" class="btn btn-primary"> Ajouter un Topic</button>
+
+
+{{ form_end(form)}}
+
+
+
+{% endblock %}
