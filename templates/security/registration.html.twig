@@ -1,15 +1,19 @@
 {% extends 'base.html.twig' %}
 
+{% block title %} Services.Agri {% endblock %}
+
 {% block body %}
 
-<h1>Veuillez vous inscrire</h1>
+    <h1>Inscription</h1>
+    
+    {{ form_start(form) }}
 
-{{ form_start(form) }}
+    {{ form_row(form.username, {'label': 'Nom d\'utilisateur', 'attr': {'placeholder': 'Renseignez votre nom'}}) }}
+    {{ form_row(form.email, {'label': 'Email', 'attr': {'placeholder': 'Renseignez votre email'}}) }}
+    {{ form_row(form.password, {'label': 'Mot de passe', 'attr': {'placeholder': 'Renseignez votre mot de passe'}}) }}
 
-{{ form_row()}}
+    <button class="submit btn btn-primary">Inscription</button>
 
-<button class="submit btn btn-primary">Inscription</button>
-
-{{ form_end(form) }}
+    {{ form_end(form) }}
 
 {% endblock %}

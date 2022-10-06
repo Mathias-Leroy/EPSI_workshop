@@ -2,11 +2,17 @@
 
 namespace App\Entity;
 
-use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\UserRepository;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @UniqueEntity(
+ *  fields={"email"},
+ *  message="L'email que vous avez indiqué est déjà utilisé !"
+ * )
  */
 class User
 {
@@ -18,27 +24,29 @@ class User
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $username;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @var string The hashed password
+     * @ORM\Column(type="string")
+     * @Assert\Length(min=8, minMessage="Votre mot de passe doit faire au moins 8 caractères")
      */
     private $password;
-
-    public $confirm_password;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $role;
-
+    private $role = 'membre';
+    
+    
     public function getId(): ?int
     {
         return $this->id;

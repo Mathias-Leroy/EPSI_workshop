@@ -4,17 +4,61 @@
 
 {% block body %}
 <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+  .forum{
+    display: flex;
+    font: 18px/1.5 sans-serif; 
+  }
+
+  .container {
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+  }
+
+  body {
+    background-image:url('image3.jpg');
+    background-size: cover;
+  }
+    
+  .btn{
+    margin-bottom: 40px;
+    height: 40px;
+  }
+
+  .form-inline {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .form-control {
+    height: 40px;
+  }
+
 </style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<div class="Forum">
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/epsi/src/Controller/ForumController.php'|file_link(0) }}">src/Controller/ForumController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/wamp64/www/epsi/templates/forum/index.html.twig'|file_link(0) }}">templates/forum/index.html.twig</a></code></li>
-    </ul>
+  <button type="button" class="btn btn-primary btn-selector">Ajouter</button>
+    
+  <form class="form-inline" action="/recherche/" method="get">
+    <fieldset>    
+      <div class="input-group"> 
+        <div class="input-group-prepend">
+          <select id="oCategorie" name="oCategorie" class="form-control">
+            <option selected="selected" value="0">Catégorie</option>
+            <option value="1">Service</option>
+            <option value="1">Titre</option>
+          </select>
+        </div>
+        <input id="oSaisie" name="oSaisie" type="text" class="form-control" aria-label="Saisie de mots clés" required="required">
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="submit">Recherche</button>
+        </div>
+      </div>
+    </fieldset> 
+  </form>
 </div>
+
 {% endblock %}
