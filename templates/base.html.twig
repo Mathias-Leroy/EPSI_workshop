@@ -3,11 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}<link rel="stylesheet" type="text/css" href="{{ asset('bootstrap.min.css') }}">
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" 
+        integrity="sha256-5veQuRbWaECuYxwap/IOE/DAwNxgm4ikX7nrgsqYp88=" crossorigin="anonymous">
+        {% block stylesheets %}<link rel="stylesheet" type="text/css" href="{{asset('bootstrap.min.css')}}">
         {% endblock %}
-        
-        {% block javascripts %}{% endblock %}
     </head>
     <body>
         <style>
@@ -53,6 +52,9 @@
         </nav>              
         <div class="container">
             {% block body %}{% endblock %}
+            <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js" 
+            integrity="sha256-7PzqE1MyWa/IV5vZumk1CVO6OQbaJE4ns7vmxuUP/7g=" crossorigin="anonymous"></script>
+            {% block javascripts %}{% endblock %}
         </div>
     </body>
 </html>
